@@ -2,7 +2,7 @@ require 'win-ffi/comctl32'
 
 module WinFFI
   module Comctl32
-    class HDITEM < FFIStruct
+    class HDITEM < FFIAdditions::Struct
       layout :mask,       :uint,
              :cxy,        :int,
              :pszText,    :string,

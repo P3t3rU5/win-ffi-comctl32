@@ -2,7 +2,7 @@ require 'win-ffi/comctl32'
 
 module WinFFI
   module Comctl32
-    class COLORSCHEME < FFIStruct
+    class COLORSCHEME < FFIAdditions::Struct
       layout :dwSize,          :dword,
              :clrBtnHighlight, :colorref, # highlight color,
              :clrBtnShadow,    :colorref     # shadow color

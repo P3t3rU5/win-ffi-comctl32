@@ -1,6 +1,6 @@
 module WinFFI
   module Comctl32
-    class TBINSERTMARK < FFIStruct
+    class TBINSERTMARK < FFIAdditions::Struct
       layout :iButton, :int,
              :dwFlags, :dword
     end

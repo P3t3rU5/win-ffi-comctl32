@@ -5,7 +5,7 @@ require 'win-ffi/comctl32/typedef/hpen'
 
 module WinFFI
   module Comctl32
-    class NMTBCUSTOMDRAW < FFIStruct
+    class NMTBCUSTOMDRAW < FFIAdditions::Struct
       layout :nmcd,                 NMCUSTOMDRAW,
              :hbrMonoDither,        :hbrush,
              :hbrLines,             :hbrush, # For drawing lines on buttons,

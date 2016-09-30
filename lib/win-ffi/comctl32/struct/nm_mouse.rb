@@ -3,7 +3,7 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module Comctl32
-    class NMMOUSE < FFIStruct
+    class NMMOUSE < FFIAdditions::Struct
       layout         :hdr,        NMHDR,
                      :dwItemSpec, :dword,
                      :dwItemData, :dword,

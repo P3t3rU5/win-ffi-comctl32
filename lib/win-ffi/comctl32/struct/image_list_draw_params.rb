@@ -4,7 +4,7 @@ require 'win-ffi/comctl32/typedef/himagelist'
 
 module WinFFI
   module Comctl32
-    class IMAGELISTDRAWPARAMS < FFIStruct
+    class IMAGELISTDRAWPARAMS < FFIAdditions::Struct
       buffer = [
           :cbSize,   :dword,
           :himl,     :himagelist,
@@ -26,7 +26,7 @@ module WinFFI
           :fState,   :dword,
           :Frame,    :dword,
           :crEffect, :colorref
-      ]if Architecture == 32
+      ]if Architecture == 'i386'
 
       layout *buffer
 

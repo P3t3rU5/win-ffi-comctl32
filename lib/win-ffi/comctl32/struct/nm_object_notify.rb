@@ -2,7 +2,7 @@ require 'win-ffi/comctl32/struct/nm_hdr'
 
 module WinFFI
   module Comctl32
-    class NMOBJECTNOTIFY < FFIStruct
+    class NMOBJECTNOTIFY < FFIAdditions::Struct
       layout         :hdr,     NMHDR,
                      :iItem,   :int,
                      :IID,     :pointer,

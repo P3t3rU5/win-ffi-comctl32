@@ -2,7 +2,7 @@ require 'win-ffi/comctl32'
 
 module WinFFI
   module Comctl32
-    class TBBUTTONINFO < FFIStruct
+    class TBBUTTONINFO < FFIAdditions::Struct
       layout :cbSize,    :uint,
              :dwMask,    :dword,
              :idCommand, :int,

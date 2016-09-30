@@ -5,7 +5,7 @@ require 'win-ffi/comctl32/struct/nm_hdr'
 
 module WinFFI
   module Comctl32
-    class NMCUSTOMDRAW < FFIStruct
+    class NMCUSTOMDRAW < FFIAdditions::Struct
       layout :hdr,         NMHDR,
              :dwDrawStage, :dword,
              :hdc,         :hdc,

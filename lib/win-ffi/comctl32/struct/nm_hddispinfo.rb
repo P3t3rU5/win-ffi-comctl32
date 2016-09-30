@@ -3,7 +3,7 @@ require 'win-ffi/comctl32/struct/nm_hdr'
 module WinFFI
   module Comctl32
 
-    class NMHDDISPINFO < FFIStruct
+    class NMHDDISPINFO < FFIAdditions::Struct
       layout :hdr,        NMHDR,
              :iItem,      :int,
              :mask,       :uint,

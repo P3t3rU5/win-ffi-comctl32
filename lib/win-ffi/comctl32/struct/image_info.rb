@@ -4,7 +4,7 @@ require 'win-ffi/core/struct/rect'
 
 module WinFFI
   module Comctl32
-    class IMAGEINFO < FFIStruct
+    class IMAGEINFO < FFIAdditions::Struct
       layout :hbmImage, :hbitmap,
              :hbmMask,  :hbitmap,
              :Unused1,  :int,
