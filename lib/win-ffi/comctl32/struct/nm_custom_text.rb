@@ -5,13 +5,13 @@ module WinFFI
   module Comctl32
     if WindowsVersion >= :vista
       class NMCUSTOMTEXT < FFIAdditions::Struct
-        layout :hdr,      NMHDR,
-               :hDC,      :hdc,
-               :lpString, :string,
-               :nCount,   :int,
-               :lpRect,   RECT,
-               :uFormat,  :uint,
-               :fLink,    :bool
+        layout hdr:      NMHDR,
+               hDC:      :hdc,
+               lpString: :string,
+               nCount:   :int,
+               lpRect:   RECT,
+               uFormat:  :uint,
+               fLink:    :bool
       end
     end
   end

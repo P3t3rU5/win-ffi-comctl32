@@ -4,13 +4,13 @@ module WinFFI
   module Comctl32
 
     class NMHDDISPINFO < FFIAdditions::Struct
-      layout :hdr,        NMHDR,
-             :iItem,      :int,
-             :mask,       :uint,
-             :pszText,    :string,
-             :cchTextMax, :int,
-             :iImage,     :int,
-             :lParam,     :lparam
+      layout hdr:        NMHDR,
+             iItem:      :int,
+             mask:       :uint,
+             pszText:    :string,
+             cchTextMax: :int,
+             iImage:     :int,
+             lParam:     :lparam
     end
   end
 end
