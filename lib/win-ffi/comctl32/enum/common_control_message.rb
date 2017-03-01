@@ -15,7 +15,7 @@ module WinFFI
         :GETVERSION,          0x2008,
         :SETNOTIFYWINDOW,     0x2009, # wParam == hwndParent.
     ]
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :SETWINDOWTHEME,      0x200B,
           :DPISCALE,            0x200C, # wParam == Awareness

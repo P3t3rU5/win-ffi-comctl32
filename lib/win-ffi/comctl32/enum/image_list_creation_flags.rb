@@ -14,12 +14,12 @@ module WinFFI
         :PALETTE,  0x00000800  # (not implemented)
     ]
 
-    if WindowsVersion >= :xp
+    if WINDOWS_VERSION >= :xp
       buffer += [
           :MIRROR,        0x00002000, # Mirror the icons contained, if the process is mirrored
           :PERITEMMIRROR, 0x00008000  # Causes the mirroring code to mirror each item when inserting a set of images, verses the whole strip
       ]
-      if WindowsVersion >= :vista
+      if WINDOWS_VERSION >= :vista
         buffer += [
             :ORIGINALSIZE,     0x00010000, # Imagelist should accept smaller than set images and apply OriginalSize based on image added
             :HIGHQUALITYSCALE, 0x00020000 # Imagelist should enable use of the high quality scaler.

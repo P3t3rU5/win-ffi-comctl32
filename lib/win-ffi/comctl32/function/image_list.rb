@@ -1,7 +1,7 @@
 require 'win-ffi/comctl32'
 
 module WinFFI
-  if WindowsVersion >= :vista
+  if WINDOWS_VERSION >= :vista
 
     require 'win-ffi/comctl32/typedef/himagelist'
 
