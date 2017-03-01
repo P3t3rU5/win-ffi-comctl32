@@ -3,7 +3,7 @@ require 'win-ffi/core/struct/rect'
 
 module WinFFI
   module Comctl32
-    if WindowsVersion >= :vista
+    if WINDOWS_VERSION >= :vista
       class NMCUSTOMTEXT < FFIAdditions::Struct
         layout :hdr,      NMHDR,
                :hDC,      :hdc,

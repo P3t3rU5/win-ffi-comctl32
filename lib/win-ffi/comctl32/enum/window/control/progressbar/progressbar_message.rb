@@ -15,9 +15,9 @@ module WinFFI
         :SETBKCOLOR,  0x2001  # lParam = bkColor
     ]
 
-    if WindowsVersion > :xp
+    if WINDOWS_VERSION > :xp
       buffer += [:SETMARQUEE, 0x040A]
-      if WindowsVersion > :vista
+      if WINDOWS_VERSION > :vista
         buffer += [
             :GETSTEP,     0x040D,
             :GETBKCOLOR,  0x040E,

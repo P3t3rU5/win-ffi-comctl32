@@ -19,7 +19,7 @@ module WinFFI
         :PAGESCROLLER_CLASS, 0x00001000, # page scroller
         :NATIVEFNTCTL_CLASS, 0x00002000, # native font control
     ]
-    buffer += [:STANDARD_CLASSES, 0x00004000, :LINK_CLASS, 0x00008000] if WindowsVersion >= :xp
+    buffer += [:STANDARD_CLASSES, 0x00004000, :LINK_CLASS, 0x00008000] if WINDOWS_VERSION >= :xp
 
     InitCommonControls = enum :init_common_controls, buffer
   end

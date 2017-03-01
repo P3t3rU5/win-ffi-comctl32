@@ -16,7 +16,7 @@ module WinFFI
         :DPISCALE,      0x00004000,
     ]
 
-    buffer += [:ASYNC, 0x00008000] if WindowsVersion >= :vista
+    buffer += [:ASYNC, 0x00008000] if WINDOWS_VERSION >= :vista
 
     ImageListDraw = enum :image_list_draw, buffer
   end

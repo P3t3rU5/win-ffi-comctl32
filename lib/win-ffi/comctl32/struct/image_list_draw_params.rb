@@ -26,7 +26,7 @@ module WinFFI
           :fState,   :dword,
           :Frame,    :dword,
           :crEffect, :colorref
-      ]if Architecture == 'i386'
+      ]if ARCHITECTURE == 'i386'
 
       layout *buffer
 
