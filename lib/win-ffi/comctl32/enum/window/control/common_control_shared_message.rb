@@ -1,5 +1,7 @@
+require 'win-ffi/comctl32'
+
 module WinFFI
-  module ComCtl32
+  module Comctl32
     buffer =  [
         :FIRST,            0x2000,
         :SETBKCOLOR,       0x2001,

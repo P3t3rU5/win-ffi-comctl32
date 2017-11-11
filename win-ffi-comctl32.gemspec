@@ -2,7 +2,7 @@ require_relative 'lib/win-ffi/comctl32/version'
 
 Gem::Specification.new do |gem|
   gem.name          = 'win-ffi-comctl32'
-  gem.version       = WinFFI::Comctl3232::VERSION
+  gem.version       = WinFFI::Comctl32::VERSION
   gem.summary       = 'FFI definitions for comctl32.dll API'
   gem.description   = 'FFI definitions for comctl32.dll API.'
   gem.license       = 'MIT'

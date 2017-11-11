@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../test/test_helper'
+require_relative 'spec_helper'
 require 'win-ffi/comctl32'
 
 RSpec.describe 'Definitions' do
