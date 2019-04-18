@@ -2,6 +2,7 @@ require 'win-ffi/comctl32'
 
 module WinFFI
   module Comctl32
+    # https://docs.microsoft.com/en-us/windows/desktop/api/shlwapi/ns-shlwapi-_dllversioninfo
     class DLLVERSIONINFO < FFIAdditions::Struct
       layout cbSize:         :dword,
              dwMajorVersion: :dword,

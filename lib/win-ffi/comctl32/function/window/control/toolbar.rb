@@ -1,35 +1,37 @@
-require 'win-ffi/comctl32/struct/color_map'
-require 'win-ffi/comctl32/enum/window/control/create_mapped_bitmap_flag'
+require_relative '../../../struct/color_map'
+require_relative '../../../enum/window/control/create_mapped_bitmap_flag'
 
 module WinFFI
   module Comctl32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787467(v=vs.85).aspx
-    # HBITMAP CreateMappedBitmap(
-    #   HINSTANCE  hInstance,
-    #   INT_PTR    idBitmap,
-    #   UINT       wFlags,
-    #   _In_ LPCOLORMAP lpColorMap,
-    #   int        iNumMaps)
-    attach_function 'CreateMappedBitmap', [:hinstance, :pointer, CreateMappedBitmapFlag, COLORMAP.ptr, :int], :hbitmap
+    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/nf-commctrl-createmappedbitmap
+    # @param [FFI::Pointer] hInstance
+    # @param [Integer] idBitmap
+    # @param [Integer] wFlags
+    # @param [FFI::Pointer] lpColorMap
+    # @param [Integer] iNumMaps
+    # @return [FFI::Pointer]
+    def self.CreateMappedBitmap(hInstance, idBitmap, wFlags, lpColorMap, iNumMaps) end
+    attach_function 'CreateMappedBitmap', [:hinstance, :int_ptr, CreateMappedBitmapFlag, COLORMAP.ptr, :int], :hbitmap
 
-    # Deprecated
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb787469(v=vs.85).aspx
-    # HWND CreateToolbarEx(
-    #   HWND        hwnd,
-    #   DWORD       ws,
-    #   UINT        wID,
-    #   int         nBitmaps,
-    #   HINSTANCE   hBMInst,
-    #   UINT_PTR    wBMID,
-    #   LPCTBBUTTON lpButtons,
-    #   int         iNumButtons,
-    #   int         dxButton,
-    #   int         dyButton,
-    #   int         dxBitmap,
-    #   int         dyBitmap,
-    #   UINT        uStructSize)
-    attach_function 'CreateToolbarEx', [:hwnd, :dword, :uint, :int, :hinstance, :pointer, :pointer, :int, :int, :int, :int, :int, :uint], :hwnd
-
-
+      # Deprecated
+      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/nf-commctrl-createtoolbarex
+      # @param [FFI::Pointer] hwnd
+      # @param [Integer] ws
+      # @param [Integer] wID
+      # @param [Integer] nBitmaps
+      # @param [FFI::Pointer] hBMInst
+      # @param [Integer] wBMID
+      # @param [FFI::Pointer] lpButtons
+      # @param [Integer] iNumButtons
+      # @param [Integer] dxButton
+      # @param [Integer] dyButton
+      # @param [Integer] dxBitmap
+      # @param [Integer] dyBitmap
+      # @param [Integer] uStructSize
+      # @return [FFI::Pointer]
+    def self.CreateToolbarEx(hwnd, ws, wID, nBitmaps, hBMInst, wBMID, lpButtons, iNumButtons, dxButton, dyButton,
+        dxBitmap, dyBitmap, uStructSize) end
+    attach_function 'CreateToolbarEx',
+                    [:hwnd, :dword, :uint, :int, :hinstance, :uint_ptr, :pointer, :int, :int, :int, :int, :int, :uint], :hwnd
   end
 end

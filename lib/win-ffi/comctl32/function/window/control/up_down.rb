@@ -1,21 +1,20 @@
-require 'win-ffi/comctl32'
-
 module WinFFI
   module Comctl32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb759977%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-    # HWND CreateUpDownControl(
-    #   DWORD     dwStyle,
-    #   int       x,
-    #   int       y,
-    #   int       cx,
-    #   int       cy,
-    #   HWND      hParent,
-    #   int       nID,
-    #   HINSTANCE hInst,
-    #   HWND      hBuddy,
-    #   int       nUpper,
-    #   int       nLower,
-    #   int       nPos)
+    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/nf-commctrl-createupdowncontrol
+    # @param [Integer] dwStyle
+    # @param [Integer] x
+    # @param [Integer] y
+    # @param [Integer] cx
+    # @param [Integer] cy
+    # @param [FFI::Pointer] hParent
+    # @param [Integer] nId
+    # @param [FFI::Pointer] hInst
+    # @param [FFI::Pointer] hBuddy
+    # @param [Integer] nUpper
+    # @param [Integer] nLower
+    # @param [Integer] nPos
+    # @return [FFI::Pointer]
+    def self.CreateUpDownControl(dwStyle, x, y, cx, cy, hParent, nId, hInst, hBuddy, nUpper, nLower, nPos) end
     attach_function 'CreateUpDownControl',
                     [:dword, :int, :int, :int, :int, :hwnd, :int, :hinstance, :hwnd, :int, :int, :int], :hwnd
   end

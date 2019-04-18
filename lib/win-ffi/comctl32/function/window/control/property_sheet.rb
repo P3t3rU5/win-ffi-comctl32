@@ -1,23 +1,29 @@
-require 'win-ffi/comctl32/struct/window/control/property_sheet/prop_sheet_page'
-require 'win-ffi/comctl32/struct/window/control/property_sheet/prop_sheet_header'
-
 module WinFFI
   if WINDOWS_VERSION >= :vista
+    require_relative '../../../struct/window/control/property_sheet/page'
+    require_relative '../../../struct/window/control/property_sheet/header'
+
     module Comctl32
 
       typedef :pointer, :hpropsheetpage
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb760807(v=vs.85).aspx
-      # HPROPSHEETPAGE CreatePropertySheetPage(LPCPROPSHEETPAGE lppsp)
+      # https://docs.microsoft.com/en-us/windows/desktop/api/prsht/nf-prsht-createpropertysheetpagea
+      # @param [FFI::Pointer] lppsp
+      # @return [FFI::Pointer]
+      def self.CreatePropertySheetPage(lppsp) end
       attach_function 'CreatePropertySheetPage', [PROPSHEETPAGE.ptr], :hpropsheetpage
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb760809%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396
-      # BOOL DestroyPropertySheetPage(HPROPSHEETPAGE hPSPage)
+      # https://docs.microsoft.com/en-us/windows/desktop/api/prsht/nf-prsht-destroypropertysheetpage
+      # @param [FFI::Pointer] hPSPage
+      # @return [true, false]
+      def self.DestroyPropertySheetPage(hPSPage) end
       attach_function 'DestroyPropertySheetPage', [:hpropsheetpage], :bool
 
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb760811(v=vs.85).aspx
-      # INT_PTR PropertySheet(LPCPROPSHEETHEADER lppsph)
-      encoded_function 'PropertySheet', [PROPSHEETHEADER.ptr], :int
+      # https://docs.microsoft.com/en-us/windows/desktop/api/prsht/nf-prsht-propertysheeta
+      # @param [FFI::Pointer] lppsph
+      # @return [Integer]
+      def self.PropertySheet(lppsph) end
+      encoded_function 'PropertySheet', [PROPSHEETHEADER.ptr], :int_ptr
     end
   end
 end
