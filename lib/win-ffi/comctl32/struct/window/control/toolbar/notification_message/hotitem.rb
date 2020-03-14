@@ -2,16 +2,9 @@ require 'win-ffi/user32/struct/window/control/notification_message/header'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmtbhotitem
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtbhotitem
     class NMTBHOTITEM < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def idOld; end
-      def idOld=(v) end
-      def idNew; end
-      def idNew=(v) end
-      def dwFlags; end
-      def dwFlags=(v) end
+      attr_accessor :hdr, :idOld, :idNew, :dwFlags
 
       layout hdr:     User32::NMHDR,
              idOld:   :int,

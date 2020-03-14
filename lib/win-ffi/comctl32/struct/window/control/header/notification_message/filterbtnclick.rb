@@ -4,14 +4,9 @@ module WinFFI
     require 'win-ffi/user32/struct/window/control/notification_message/header'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmhdfilterbtnclick
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmhdfilterbtnclick
       class NMHDFILTERBTNCLICK < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def iItem; end
-        def iItem=(v) end
-        def rc; end
-        def rc=(v) end
+        attr_accessor :hdr, :iItem, :rc
 
         layout hdr:   User32::NMHDR,
                iItem: :int,

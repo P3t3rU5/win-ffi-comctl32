@@ -4,12 +4,9 @@ module WinFFI
     require_relative 'item'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-taglhittestinfo
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lhittestinfo
       class LHITTESTINFO < FFIAdditions::Struct
-        def pt; end
-        def pt=(v) end
-        def item; end
-        def item=(v) end
+        attr_accessor :pt, :item
 
         layout pt:   POINT,
                item: LITEM

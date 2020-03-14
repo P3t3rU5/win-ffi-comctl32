@@ -4,12 +4,10 @@ require_relative '../../../../../struct/window/control/treeview/item'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmtvdispinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtvdispinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtvdispinfow
     class NMTVDISPINFO < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def item; end
-      def item=(v) end
+      attr_accessor :hdr, :item
 
       layout hdr:  User32::NMHDR,
              item: TVITEM

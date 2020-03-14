@@ -5,30 +5,16 @@ require_relative '../../../../enum/window/control/month_calendar/hittest'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/Commctrl/ns-commctrl-mchittestinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-mchittestinfo
     class MCHITTESTINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def pt; end
-      def pt=(v) end
-      def uHit; end
-      def uHit=(v) end
-      def st; end
-      def st=(v) end
+      attr_accessor :cbSize, :pt, :uHit, :st
 
       buffer = {cbSize: :uint, pt: POINT, uHit: MonthCalendarHitTest, st: Kernel32::SYSTEMTIME}
 
       if WINDOWS_VERSION >= :vista
         require 'win-ffi/core/struct/rect'
 
-        def rc; end
-        def rc=(v) end
-        def iOffset; end
-        def iOffset=(v) end
-        def iRow; end
-        def iRow=(v) end
-        def iCol; end
-        def iCol=(v) end
+        attr_accessor :rc, :iOffset, :iRow, :iCol
 
         buffer.merge(rc: RECT, iOffset: :int, iRow: :int, iCol: :int)
       end

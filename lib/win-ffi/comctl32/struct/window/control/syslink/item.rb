@@ -7,20 +7,14 @@ module WinFFI
     module Comctl32
       MAX_LINKID_TEXT = 48
 
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-taglitem
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-litem
       class LITEM < FFIAdditions::Struct
-        def mask; end
-        def mask=(v) end
-        def iLink; end
-        def iLink=(v) end
-        def state; end
-        def state=(v) end
-        def stateMask; end
-        def stateMask=(v) end
-        def szID; end
-        def szID=(v) end
-        def sxUrl; end
-        def sxUrl=(v) end
+        attr_accessor :mask,
+                      :iLink,
+                      :state,
+                      :stateMask,
+                      :szID,
+                      :sxUrl
 
         layout mask:      LinkItemFlag,
                iLink:     :int,

@@ -1,15 +1,10 @@
 module WinFFI
   module Comctl32
     #ifdef _WIN32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbsaveparamsa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbsaveparamsw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbsaveparamsa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbsaveparamsw
     class TBSAVEPARAMS < FFIAdditions::Struct
-      def hkr; end
-      def hkr=(v) end
-      def pszSubKey; end
-      def pszSubKey=(v) end
-      def pszValueName; end
-      def pszValueName=(v) end
+      attr_accessor :hkr, :pszSubKey, :pszValueName
 
       layout hkr:          :hkey,
              pszSubKey:    :string,

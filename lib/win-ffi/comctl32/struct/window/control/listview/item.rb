@@ -5,28 +5,19 @@ module WinFFI
     require_relative '../../../../enum/window/control/listview/identifier'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-taglvitema
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvitema
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvitemw
       class LVITEM < FFIAdditions::Struct
-        def mask; end
-        def mask=(v) end
-        def iItem; end
-        def iItem=(v) end
-        def iSubItem; end
-        def iSubItem=(v) end
-        def state; end
-        def state=(v) end
-        def stateMask; end
-        def stateMask=(v) end
-        def pszText; end
-        def pszText=(v) end
-        def cchTextMax; end
-        def cchTextMax=(v) end
-        def iImage; end
-        def iImage=(v) end
-        def lParam; end
-        def lParam=(v) end
-        def iIndent; end
-        def iIndent=(v) end
+        attr_accessor :mask,
+                      :iItem,
+                      :iSubItem,
+                      :state,
+                      :stateMask,
+                      :pszText,
+                      :cchTextMax,
+                      :iImage,
+                      :lParam,
+                      :iIndent
 
         buffer = {
             mask:       ListViewItemFlag,
@@ -42,12 +33,7 @@ module WinFFI
         }
 
         if WINDOWS_VERSION >= :xp
-          def iGroupId; end
-          def iGroupId=(v) end
-          def cColumns; end
-          def cColumns=(v) end
-          def puColumns; end
-          def puColumns=(v) end
+          attr_accessor :iGroupId, :cColumns, :puColumns
 
           buffer.merge(
               iGroupId:   ListViewGroupIdentifier,
@@ -55,10 +41,7 @@ module WinFFI
               puColumns:  :pointer
           )
           if WINDOWS_VERSION >= :vista
-            def piColFmt; end
-            def piColFmt=(v) end
-            def iGroup; end
-            def iGroup=(v) end
+            attr_accessor :piColFmt, :iGroup
 
             buffer.merge(piColFmt: :pointer, iGroup: :int)
           end

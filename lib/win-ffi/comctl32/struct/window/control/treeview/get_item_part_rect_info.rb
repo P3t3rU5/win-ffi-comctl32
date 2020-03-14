@@ -8,14 +8,9 @@ module WinFFI
 
     define_prefix(:TVGIPR, TVITEMPART)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tvgetitempartrectinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tvgetitempartrectinfo
     class TVGETITEMPARTRECTINFO < FFIAdditions::Struct
-      def hti; end
-      def hti=(v) end
-      def prc; end
-      def prc=(v) end
-      def partID; end
-      def partID=(v) end
+      attr_accessor :hti, :prc, :partID
 
       layout hti:    :htreeitem,
              prc:    RECT,

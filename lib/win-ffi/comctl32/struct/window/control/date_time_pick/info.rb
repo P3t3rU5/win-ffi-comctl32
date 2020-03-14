@@ -3,8 +3,17 @@ module WinFFI
     require 'win-ffi/core/struct/rect'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-datetimepickerinfo
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-datetimepickerinfo
       class DATETIMEPICKERINFO < FFIAdditions::Struct
+        attr_accessor :cbSize,
+                      :rcCheck,
+                      :stateCheck,
+                      :rcButton,
+                      :stateButton,
+                      :hwndEdit,
+                      :hwndUD,
+                      :hwndDropDown
+
         layout cbSize:       :dword,
                rcCheck:      RECT,
                stateCheck:   :dword,

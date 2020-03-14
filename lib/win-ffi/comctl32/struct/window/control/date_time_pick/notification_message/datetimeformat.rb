@@ -3,19 +3,10 @@ require 'win-ffi/kernel32/struct/time/system_time'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmdatetimeformata
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmdatetimeformatw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmdatetimeformata
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmdatetimeformatw
     class NMDATETIMEFORMAT < FFIAdditions::Struct
-      def nmhdr; end
-      def nmhdr=(v) end
-      def pszFormat; end
-      def pszFormat=(v) end
-      def st; end
-      def st=(v) end
-      def pszDisplay; end
-      def pszDisplay=(v) end
-      def szDisplay; end
-      def szDisplay=(v) end
+      attr_accessor :nmhdr, :pszFormat, :st, :pszDisplay, :szDisplay
 
       layout nmhdr:      User32::NMHDR,
              pszFormat:  :string,

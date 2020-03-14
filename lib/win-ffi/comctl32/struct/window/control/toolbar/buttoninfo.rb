@@ -1,28 +1,18 @@
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbbuttoninfoa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbbuttoninfow
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbbuttoninfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbbuttoninfow
     class TBBUTTONINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def dwMask; end
-      def dwMask=(v) end
-      def idCommand; end
-      def idCommand=(v) end
-      def iImage; end
-      def iImage=(v) end
-      def fsState; end
-      def fsState=(v) end
-      def fsStyle; end
-      def fsStyle=(v) end
-      def cx; end
-      def cx=(v) end
-      def lParam; end
-      def lParam=(v) end
-      def pszText; end
-      def pszText=(v) end
-      def cchText; end
-      def cchText=(v) end
+      attr_accessor :cbSize,
+                    :dwMask,
+                    :idCommand,
+                    :iImage,
+                    :fsState,
+                    :fsStyle,
+                    :cx,
+                    :lParam,
+                    :pszText,
+                    :cchText
 
       layout cbSize:    :uint,
              dwMask:    :dword,

@@ -7,32 +7,20 @@ module WinFFI
     require_relative '../../../../enum/window/control/month_calendar/grid_info_flag'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-mcgridinfo
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-mcgridinfo
       class MCGRIDINFO < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def dwPart; end
-        def dwPart=(v) end
-        def dwFlags; end
-        def dwFlags=(v) end
-        def iCalendar; end
-        def iCalendar=(v) end
-        def iRow; end
-        def iRow=(v) end
-        def iCol; end
-        def iCol=(v) end
-        def bSelected; end
-        def bSelected=(v) end
-        def stStart; end
-        def stStart=(v) end
-        def stEnd; end
-        def stEnd=(v) end
-        def rc; end
-        def rc=(v) end
-        def pszName; end
-        def pszName=(v) end
-        def cchName; end
-        def cchName=(v) end
+        attr_accessor :cbSize,
+                      :dwPart,
+                      :dwFlags,
+                      :iCalendar,
+                      :iRow,
+                      :iCol,
+                      :bSelected,
+                      :stStart,
+                      :stEnd,
+                      :rc,
+                      :pszName,
+                      :cchName
 
         layout cbSize:    :uint,
                dwPart:    MonthCalendarGridInfoPart,

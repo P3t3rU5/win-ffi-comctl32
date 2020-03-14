@@ -14,24 +14,16 @@ module WinFFI
     define_prefix(:TVI, TreeviewInsert)
 
     class TVINSERTSTRUCT_UNION < FFIAdditions::Union
-      def itemex; end
-      def itemex=(v) end
-      def item; end
-      def item=(v) end
+      attr_accessor :itemex, :item
 
       layout itemex: TVITEMEX,
              item:     TVITEM
     end
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tvinsertstructa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tvinsertstructw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tvinsertstructa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tvinsertstructw
     class TVINSERTSTRUCT < FFIAdditions::Struct
-      def hParent; end
-      def hParent=(v) end
-      def hInsertAfter; end
-      def hInsertAfter=(v) end
-      def s; end
-      def s=(v) end
+      attr_accessor :hParent, :hInsertAfter, :s
 
       layout hParent:      :htreeitem,
              hInsertAfter: TreeviewInsert,

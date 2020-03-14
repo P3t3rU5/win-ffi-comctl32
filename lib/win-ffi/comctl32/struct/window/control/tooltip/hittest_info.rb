@@ -3,15 +3,10 @@ module WinFFI
   require_relative 'info'
 
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tthittestinfoa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tthittestinfow
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tthittestinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tthittestinfow
     class TTHITTESTINFO < FFIAdditions::Struct
-      def hwnd; end
-      def hwnd=(v) end
-      def pt; end
-      def pt=(v) end
-      def ti; end
-      def ti=(v) end
+      attr_accessor :hwnd, :pt, :ti
 
       layout hwnd: :hwnd,
              pt:   POINT,

@@ -4,12 +4,9 @@ module WinFFI
     require_relative '../item'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmlink
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlink
       class NMLINK < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def item; end
-        def item=(v) end
+        attr_accessor :hdr, :item
 
         layout hdr:  User32::NMHDR,
                item: LITEM

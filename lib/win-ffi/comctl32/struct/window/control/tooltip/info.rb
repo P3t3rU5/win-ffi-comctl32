@@ -3,24 +3,17 @@ module WinFFI
   require_relative '../../../../enum/window/control/tooltip/flag'
 
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagtoolinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tttoolinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tttoolinfow
     class TTTOOLINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def uFlags; end
-      def uFlags=(v) end
-      def hwnd; end
-      def hwnd=(v) end
-      def uId; end
-      def uId=(v) end
-      def rect; end
-      def rect=(v) end
-      def hinst; end
-      def hinst=(v) end
-      def lpszText; end
-      def lpszText=(v) end
-      def lParam; end
-      def lParam=(v) end
+      attr_accessor :cbSize,
+                    :uFlags,
+                    :hwnd,
+                    :uId,
+                    :rect,
+                    :hinst,
+                    :lpszText,
+                    :lParam
 
       buffer = {
           cbSize:   :uint,
@@ -34,8 +27,7 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :xp
-        def lpReserved; end
-        def lpReserved=(v) end
+        attr_accessor :lpReserved
 
         buffer.merge(lpReserved: :pointer)
       end

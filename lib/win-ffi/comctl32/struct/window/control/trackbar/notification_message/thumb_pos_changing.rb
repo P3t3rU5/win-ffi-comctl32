@@ -3,8 +3,10 @@ module WinFFI
     require 'win-ffi/user32/struct/window/control/notification_message/header'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagtrbthumbposchanging
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtrbthumbposchanging
       class NMTRBTHUMBPOSCHANGING < FFIAdditions::Struct
+        attr_accessor :hdr, :dwPos, :nReason
+
         layout hdr:     User32::NMHDR,
                dwPos:   :dword,
                nReason: :int

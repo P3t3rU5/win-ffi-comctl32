@@ -5,19 +5,14 @@ require_relative '../../../../../constant'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmcbeendedita
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmcbeendeditw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmcbeendedita
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmcbeendeditw
     class NMCBEENDEDIT < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def fChanged; end
-      def fChanged=(v) end
-      def iNewSelection; end
-      def iNewSelection=(v) end
-      def szText; end
-      def szText=(v) end
-      def iWhy; end
-      def iWhy=(v) end
+      attr_accessor :hdr,
+                    :fChanged,
+                    :iNewSelection,
+                    :szText,
+                    :iWhy
 
       layout hdr:           User32::NMHDR,
              fChanged:      :bool,

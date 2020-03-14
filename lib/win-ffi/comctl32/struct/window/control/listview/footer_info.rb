@@ -4,16 +4,9 @@ module WinFFI
 
     define_prefix(:LVFF, ListviewFooterFlag)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-taglvfooterinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvfooterinfo
     class LVFOOTERINFO < FFIAdditions::Struct
-      def mask; end
-      def mask=(v) end
-      def pszText; end
-      def pszText=(v) end
-      def cchTextMax; end
-      def cchTextMax=(v) end
-      def cItems; end
-      def cItems=(v) end
+      attr_accessor :mask, :pszText, :cchTextMax, :cItems
 
       layout mask:       ListviewFooterFlag,
              pszText:    :string,

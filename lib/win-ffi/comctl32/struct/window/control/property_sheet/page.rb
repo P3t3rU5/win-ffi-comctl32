@@ -15,50 +15,32 @@ module WinFFI
 
       # https://msdn.microsoft.com/en-us/library/windows/desktop/bb774548(v=vs.85).aspx
       class PROPSHEETPAGE_UNION < FFIAdditions::Union
-        def pszTemplate; end
-        def pszTemplate=(v) end
-        def pResource; end
-        def pResource=(v) end
+        attr_accessor :pszTemplate, :pResource
 
         layout pszTemplate: :string,
                pResource:   User32::DLGTEMPLATE
       end
 
       class PROPSHEETPAGE_UNION_2 < FFIAdditions::Union
-        def hIcon; end
-        def hIcon=(v) end
-        def pszIcon; end
-        def pszIcon=(v) end
+        attr_accessor :hIcon, :pszIcon
 
         layout hIcon:   :hicon,
                pszIcon: :string
       end
 
       class PROPSHEETPAGE
-        def dwSize; end
-        def dwSize=(v) end
-        def dwFlags; end
-        def dwFlags=(v) end
-        def hInstance; end
-        def hInstance=(v) end
-        def u1; end
-        def u1=(v) end
-        def u2; end
-        def u2=(v) end
-        def pszTitle; end
-        def pszTitle=(v) end
-        def pfnDlgProc; end
-        def pfnDlgProc=(v) end
-        def lParam; end
-        def lParam=(v) end
-        def pfnCallback; end
-        def pfnCallback=(v) end
-        def pcRefParent; end
-        def pcRefParent=(v) end
-        def pszHeaderTitle; end
-        def pszHeaderTitle=(v) end
-        def pszHeaderSubTitle; end
-        def pszHeaderSubTitle=(v) end
+        attr_accessor :dwSize,
+                      :dwFlags,
+                      :hInstance,
+                      :u1,
+                      :u2,
+                      :pszTitle,
+                      :pfnDlgProc,
+                      :lParam,
+                      :pfnCallback,
+                      :pcRefParent,
+                      :pszHeaderTitle,
+                      :pszHeaderSubTitle
 
         buffer = {
             dwSize:            :dword,
@@ -76,8 +58,7 @@ module WinFFI
         }
 
         if WINDOWS_VERSION >= :xp
-          def hActCtx; end
-          def hActCtx=(v) end
+          attr_accessor :hActCtx
 
           buffer.merge(hActCtx: :handle)
         end

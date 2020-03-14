@@ -9,32 +9,21 @@ module WinFFI
 
       define_prefix(:HDIS, HeaderItemState)
 
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-_hd_itema
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-hditema
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-hditemw
       class HDITEM < FFIAdditions::Struct
-        def mask; end
-        def mask=(v) end
-        def cxy; end
-        def cxy=(v) end
-        def pszText; end
-        def pszText=(v) end
-        def hbm; end
-        def hbm=(v) end
-        def cchTextMax; end
-        def cchTextMax=(v) end
-        def fmt; end
-        def fmt=(v) end
-        def lParam; end
-        def lParam=(v) end
-        def iImage; end
-        def iImage=(v) end
-        def iOrder; end
-        def iOrder=(v) end
-        def type; end
-        def type=(v) end
-        def pvFilter; end
-        def pvFilter=(v) end
-        def state; end
-        def state=(v) end
+        attr_accessor :mask,
+                      :cxy,
+                      :pszText,
+                      :hbm,
+                      :cchTextMax,
+                      :fmt,
+                      :lParam,
+                      :iImage,
+                      :iOrder,
+                      :type,
+                      :pvFilter,
+                      :state
 
         layout mask:       :uint,
                cxy:        :int,

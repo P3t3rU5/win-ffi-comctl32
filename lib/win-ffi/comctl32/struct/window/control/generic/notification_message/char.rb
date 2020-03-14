@@ -3,16 +3,9 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmchar
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmchar
     class NMCHAR < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def ch; end
-      def ch=(v) end
-      def dwItemPrev; end
-      def dwItemPrev=(v) end
-      def dwItemNext; end
-      def dwItemNext=(v) end
+      attr_accessor :hdr, :ch, :dwItemPrev, :dwItemNext
 
       layout hdr:        User32::NMHDR,
              ch:         :uint,

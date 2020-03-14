@@ -1,12 +1,9 @@
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module Comctl32
-      # https://msdn.microsoft.com/en-us/library/windows/desktop/bb774762
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvitemindex
       class LVITEMINDEX < FFIAdditions::Struct
-        def iItem; end
-        def iItem=(v) end
-        def iGroup; end
-        def iGroup=(v) end
+        attr_accessor :iItem, :iGroup
 
         layout iItem:  :int,
                iGroup: :int

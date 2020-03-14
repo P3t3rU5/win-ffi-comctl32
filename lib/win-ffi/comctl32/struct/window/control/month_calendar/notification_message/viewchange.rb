@@ -5,14 +5,9 @@ module WinFFI
     require_relative '../../../../../enum/window/control/month_calendar/view'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmviewchange
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmviewchange
       class NMVIEWCHANGE < FFIAdditions::Struct
-        def nmhdr; end
-        def nmhdr=(v) end
-        def dwOldView; end
-        def dwOldView=(v) end
-        def dwNewView; end
-        def dwNewView=(v) end
+        attr_accessor :nmhdr, :dwOldView, :dwNewView
 
         layout nmhdr:     User32::NMHDR,
                dwOldView: MonthCalendarView,

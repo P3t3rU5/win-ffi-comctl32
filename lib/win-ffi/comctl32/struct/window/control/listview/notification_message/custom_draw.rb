@@ -14,16 +14,9 @@ module WinFFI
 
     define_prefix(:LVCDI, ListViewCustomDrawItem)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmlvcustomdraw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvcustomdraw
     class NMLVCUSTOMDRAW < FFIAdditions::Struct
-      def nmcd; end
-      def nmcd=(v) end
-      def clrText; end
-      def clrText=(v) end
-      def clrTextBk; end
-      def clrTextBk=(v) end
-      def iSubItem; end
-      def iSubItem=(v) end
+      attr_accessor :nmcd, :clrText, :clrTextBk, :iSubItem
 
       buffer = {
           nmcd:      User32::NMCUSTOMDRAW,
@@ -33,22 +26,14 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :xp
-        def dwItemType; end
-        def dwItemType=(v) end
-        def clrFace; end
-        def clrFace=(v) end
-        def iIconEffect; end
-        def iIconEffect=(v) end
-        def iIconPhase; end
-        def iIconPhase=(v) end
-        def iPartId; end
-        def iPartId=(v) end
-        def iStateId; end
-        def iStateId=(v) end
-        def rcText; end
-        def rcText=(v) end
-        def uAlign; end
-        def uAlign=(v) end
+        attr_accessor :dwItemType,
+                      :clrFace,
+                      :iIconEffect,
+                      :iIconPhase,
+                      :iPartId,
+                      :iStateId,
+                      :rcText,
+                      :uAlign
 
         buffer.merge(
             dwItemType:  ListViewCustomDrawItem,

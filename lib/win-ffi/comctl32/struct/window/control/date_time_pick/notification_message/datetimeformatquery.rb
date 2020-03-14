@@ -3,15 +3,10 @@ require 'win-ffi/user32/struct/window/control/notification_message/header'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmdatetimeformatquerya
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmdatetimeformatqueryw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmdatetimeformatquerya
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmdatetimeformatqueryw
     class NMDATETIMEFORMATQUERY < FFIAdditions::Struct
-      def nmhdr; end
-      def nmhdr=(v) end
-      def pszFormat; end
-      def pszFormat=(v) end
-      def szMax; end
-      def szMax=(v) end
+      attr_accessor :nmhdr, :pszFormat, :szMax
 
       layout nmhdr:     User32::NMHDR,
              pszFormat: :string,

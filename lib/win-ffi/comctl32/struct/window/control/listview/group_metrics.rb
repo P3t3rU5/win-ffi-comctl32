@@ -2,32 +2,20 @@ require_relative '../../../../enum/window/control/listview/group_metrics_flag'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-taglvgroupmetrics
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvgroupmetrics
     class LVGROUPMETRICS < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def mask; end
-      def mask=(v) end
-      def Left; end
-      def Left=(v) end
-      def Top; end
-      def Top=(v) end
-      def Right; end
-      def Right=(v) end
-      def Bottom; end
-      def Bottom=(v) end
-      def crLeft; end
-      def crLeft=(v) end
-      def crTop; end
-      def crTop=(v) end
-      def crRight; end
-      def crRight=(v) end
-      def crBottom; end
-      def crBottom=(v) end
-      def crHeader; end
-      def crHeader=(v) end
-      def crFooter; end
-      def crFooter=(v) end
+      attr_accessor :cbSize,
+                    :mask,
+                    :Left,
+                    :Top,
+                    :Right,
+                    :Bottom,
+                    :crLeft,
+                    :crTop,
+                    :crRight,
+                    :crBottom,
+                    :crHeader,
+                    :crFooter
 
       layout cbSize:   :uint,
              mask:     ListviewGroupMetricsFlag,

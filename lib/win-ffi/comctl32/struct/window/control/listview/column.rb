@@ -3,24 +3,17 @@ require_relative '../../../../enum/window/control/listview/column_flag_mt'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-taglvcolumna
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvcolumna
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvcolumnw
     class LVCOLUMN < FFIAdditions::Struct
-      def mask; end
-      def mask=(v) end
-      def fmt; end
-      def fmt=(v) end
-      def cx; end
-      def cx=(v) end
-      def pszText; end
-      def pszText=(v) end
-      def cchTextMax; end
-      def cchTextMax=(v) end
-      def iSubItem; end
-      def iSubItem=(v) end
-      def iImage; end
-      def iImage=(v) end
-      def iOrder; end
-      def iOrder=(v) end
+      attr_accessor :mask,
+                    :fmt,
+                    :cx,
+                    :pszText,
+                    :cchTextMax,
+                    :iSubItem,
+                    :iImage,
+                    :iOrder
 
       buffer = {
           mask:       ListviewColumnFlag,
@@ -34,12 +27,9 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :vista
-        def cxMin; end
-        def cxMin=(v) end
-        def cxDefault; end
-        def cxDefault=(v) end
-        def cxIdeal; end
-        def cxIdeal=(v) end
+        attr_accessor :cxMin,
+                      :cxDefault,
+                      :cxIdeal
 
         buffer.merge(cxMin: :int, cxDefault: :int, cxIdeal: :int)
       end

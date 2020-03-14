@@ -3,14 +3,9 @@ module WinFFI
     require 'win-ffi/user32/struct/window/control/notification_message/header'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-_nm_updown
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmupdown
       class NMUPDOWN < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def iPos; end
-        def iPos=(v) end
-        def iDelta; end
-        def iDelta=(v) end
+        attr_accessor :hdr, :iPos, :iDelta
 
         layout hdr:    User32::NMHDR,
                iPos:   :int,

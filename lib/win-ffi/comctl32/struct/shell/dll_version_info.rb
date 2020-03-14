@@ -1,9 +1,13 @@
-require 'win-ffi/comctl32'
-
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/shlwapi/ns-shlwapi-_dllversioninfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/shlwapi/ns-shlwapi-dllversioninfo
     class DLLVERSIONINFO < FFIAdditions::Struct
+      attr_accessor :cbSize,
+                    :dwMajorVersion,
+                    :dwMinorVersion,
+                    :dwBuildNumber,
+                    :dwPlatformID
+
       layout cbSize:         :dword,
              dwMajorVersion: :dword,
              dwMinorVersion: :dword,

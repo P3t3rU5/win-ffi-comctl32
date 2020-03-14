@@ -5,20 +5,14 @@ module WinFFI
     require_relative '../../../../../enum/window/control/rebar/band_style'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmrebar
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmrebar
       class NMREBAR < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def dwMask; end
-        def dwMask=(v) end
-        def uBand; end
-        def uBand=(v) end
-        def fStyle; end
-        def fStyle=(v) end
-        def wID; end
-        def wID=(v) end
-        def lParam; end
-        def lParam=(v) end
+        attr_accessor :hdr,
+                      :dwMask,
+                      :uBand,
+                      :fStyle,
+                      :wID,
+                      :lParam
 
         layout hdr:    User32::NMHDR,
                dwMask: RebarNotificationMessage,

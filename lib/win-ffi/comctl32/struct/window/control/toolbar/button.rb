@@ -1,21 +1,14 @@
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbbutton
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbbutton
     class TBBUTTON < FFIAdditions::Struct
-      def iBitmap; end
-      def iBitmap=(v) end
-      def idCommand; end
-      def idCommand=(v) end
-      def fsState; end
-      def fsState=(v) end
-      def fsStyle; end
-      def fsStyle=(v) end
-      def bReserved; end
-      def bReserved=(v) end
-      def dwData; end
-      def dwData=(v) end
-      def iString; end
-      def iString=(v) end
+      attr_accessor :iBitmap,
+                    :idCommand,
+                    :fsState,
+                    :fsStyle,
+                    :bReserved,
+                    :dwData,
+                    :iString
 
       layout iBitmap:   :int,
              idCommand: :int,

@@ -3,24 +3,16 @@ module WinFFI
     require_relative '../../../../enum/window/control/toolbar/metric_flag'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbmetrics
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbmetrics
       class TBMETRICS < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def dwMask; end
-        def dwMask=(v) end
-        def cxPad; end
-        def cxPad=(v) end
-        def cyPad; end
-        def cyPad=(v) end
-        def cxBarPad; end
-        def cxBarPad=(v) end
-        def cyBarPad; end
-        def cyBarPad=(v) end
-        def cxButtonSpacing; end
-        def cxButtonSpacing=(v) end
-        def cyButtonSpacing; end
-        def cyButtonSpacing=(v) end
+        attr_accessor :cbSize,
+                      :dwMask,
+                      :cxPad,
+                      :cyPad,
+                      :cxBarPad,
+                      :cyBarPad,
+                      :cxButtonSpacing,
+                      :cyButtonSpacing
 
         layout cbSize:          :uint,
                dwMask:          ToolbarMetricFlag,

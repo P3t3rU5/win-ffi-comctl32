@@ -3,42 +3,25 @@ module WinFFI
     if WINDOWS_VERSION >= :vista
       require_relative '../../../../typedef/himagelist'
 
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-imagelistdrawparams
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-imagelistdrawparams
       class IMAGELISTDRAWPARAMS < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def himl; end
-        def himl=(v) end
-        def i; end
-        def i=(v) end
-        def hdcDst; end
-        def hdcDst=(v) end
-        def x; end
-        def x=(v) end
-        def y; end
-        def y=(v) end
-        def cx; end
-        def cx=(v) end
-        def cy; end
-        def cy=(v) end
-        def xBitmap; end
-        def xBitmap=(v) end
-        def yBitmap; end
-        def yBitmap=(v) end
-        def rgbBk; end
-        def rgbBk=(v) end
-        def rgbFg; end
-        def rgbFg=(v) end
-        def fStyle; end
-        def fStyle=(v) end
-        def dwRop; end
-        def dwRop=(v) end
-        def fState; end
-        def fState=(v) end
-        def Frame; end
-        def Frame=(v) end
-        def crEffect; end
-        def crEffect=(v) end
+        attr_accessor :cbSize,
+                      :himl,
+                      :i,
+                      :hdcDst,
+                      :x,
+                      :y,
+                      :cx,
+                      :cy,
+                      :xBitmap,
+                      :yBitmap,
+                      :rgbBk,
+                      :rgbFg,
+                      :fStyle,
+                      :dwRop,
+                      :fState,
+                      :Frame,
+                      :crEffect
 
         layout cbSize:   :dword,
                himl:     :himagelist,

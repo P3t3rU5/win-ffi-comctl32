@@ -5,18 +5,10 @@ require_relative '../item'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmtvstateimagechanging
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtreeviewa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtreevieww
     class NMTREEVIEW < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def action; end
-      def action=(v) end
-      def itemOld; end
-      def itemOld=(v) end
-      def itemNew; end
-      def itemNew=(v) end
-      def ptDrag; end
-      def ptDrag=(v) end
+      attr_accessor :hdr, :action, :itemOld, :itemNew, :ptDrag
 
       layout hdr:     User32::NMHDR,
              action:  :uint,

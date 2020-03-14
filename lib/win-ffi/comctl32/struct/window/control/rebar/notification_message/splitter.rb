@@ -4,12 +4,9 @@ module WinFFI
     require 'win-ffi/user32/struct/window/control/notification_message/header'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmrebarsplitter
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmrebarsplitter
       class NMREBARSPLITTER < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def rcSizing; end
-        def rcSizing=(v) end
+        attr_accessor :hdr, :rcSizing
 
         layout hdr:      User32::NMHDR,
                rcSizing: RECT

@@ -3,13 +3,10 @@ require_relative '../../../../../../../win-ffi/comctl32/struct/window/control/co
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmcomboboxexa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmcomboboxexw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmcomboboxexa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmcomboboxexw
     class NMCOMBOBOXEX < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def ceItem; end
-      def ceItem=(v) end
+      attr_accessor :hdr, :ceItem
 
       layout hdr:    User32::NMHDR,
              ceItem: COMBOBOXEXITEM

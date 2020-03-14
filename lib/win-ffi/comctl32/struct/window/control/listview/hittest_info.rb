@@ -3,16 +3,9 @@ require_relative '../../../../enum/window/control/listview/hittest_info'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-lvhittestinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvhittestinfo
     class LVHITTESTINFO < FFIAdditions::Struct
-      def pt; end
-      def pt=(v) end
-      def flags; end
-      def flags=(v) end
-      def iItem; end
-      def iItem=(v) end
-      def iSubItem; end
-      def iSubItem=(v) end
+      attr_accessor :pt, :flags, :iItem, :iSubItem
 
       buffer = {
           pt:       POINT,
@@ -22,8 +15,7 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :vista
-        def iGroup; end
-        def iGroup=(v) end
+        attr_accessor :iGroup
 
         buffer.merge(iGroup: :int)
       end

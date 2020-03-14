@@ -6,16 +6,9 @@ module WinFFI
 
     module Comctl32
       #if (NTDDI_VERSION >= NTDDI_VISTA)
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmlvlink
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvlink
       class NMLVLINK < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def link; end
-        def link=(v) end
-        def iItem; end
-        def iItem=(v) end
-        def iSubItem; end
-        def iSubItem=(v) end
+        attr_accessor :hdr, :link, :iItem, :iSubItem
 
         layout hdr:      User32::NMHDR,
                link:     LITEM,

@@ -3,15 +3,10 @@ require_relative '../find_info'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmlvfinditema
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmlvfinditemw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvfinditema
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvfinditemw
     class NMLVFINDITEM < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def iStart; end
-      def iStart=(v) end
-      def lvfi; end
-      def lvfi=(v) end
+      attr_accessor :hdr, :iStart, :lvfi
 
       layout hdr:    User32::NMHDR,
              iStart: :int,

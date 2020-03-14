@@ -4,16 +4,9 @@ require_relative '../../../../../typedef/htreeitem'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmtvstateimagechanging
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtvstateimagechanging
     class NMTVSTATEIMAGECHANGING < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def hti; end
-      def hti=(v) end
-      def iOldStateImageIndex; end
-      def iOldStateImageIndex=(v) end
-      def iNewStateImageIndex; end
-      def iNewStateImageIndex=(v) end
+      attr_accessor :hdr, :hti, :iOldStateImageIndex, :iNewStateImageIndex
 
       layout hdr:                 User32::NMHDR,
              hti:                 :htreeitem,

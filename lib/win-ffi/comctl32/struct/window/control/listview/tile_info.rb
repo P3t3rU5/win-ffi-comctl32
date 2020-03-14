@@ -1,14 +1,8 @@
 module WinFFI
   module Comctl32
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvtileinfo
     class LVTILEINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def iItem; end
-      def iItem=(v) end
-      def cColumns; end
-      def cColumns=(v) end
-      def puColumns; end
-      def puColumns=(v) end
+      attr_accessor :cbSize, :iItem, :cColumns, :puColumns
 
       buffer = {
           cbSize:    :uint,
@@ -18,8 +12,7 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :vista
-        def piColFmt; end
-        def piColFmt=(v) end
+        attr_accessor :piColFmt
 
         buffer.merge(piColFmt: :pointer)
       end

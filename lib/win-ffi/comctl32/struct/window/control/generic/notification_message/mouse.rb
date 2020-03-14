@@ -3,18 +3,13 @@ require 'win-ffi/core/struct/point'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmmouse
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmmouse
     class NMMOUSE < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def dwItemSpec; end
-      def dwItemSpec=(v) end
-      def dwItemData; end
-      def dwItemData=(v) end
-      def pt; end
-      def pt=(v) end
-      def dwHitInfo; end
-      def dwHitInfo=(v) end
+      attr_accessor :hdr,
+                    :dwItemSpec,
+                    :dwItemData,
+                    :pt,
+                    :dwHitInfo
 
       layout hdr:        User32::NMHDR,
              dwItemSpec: :dword_ptr,

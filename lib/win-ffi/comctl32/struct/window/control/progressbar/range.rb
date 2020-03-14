@@ -1,11 +1,8 @@
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-pbrange
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-pbrange
     class PBRANGE < FFIAdditions::Struct
-      def iLow; end
-      def iLow=(v); end
-      def iHigh; end
-      def iHigh=(v); end
+      attr_accessor :iLow, :iHigh
 
       layout iLow:  :int,
              iHigh: :int

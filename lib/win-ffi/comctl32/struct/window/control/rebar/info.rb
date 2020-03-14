@@ -6,14 +6,9 @@ module WinFFI
 
     define_prefix(:RBIM, RebarInfoMask)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-rebarinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-rebarinfo
     class REBARINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def fMask; end
-      def fMask=(v) end
-      def himl; end
-      def himl=(v) end
+      attr_accessor :cbSize, :fMask, :himl
 
       layout cbSize: :uint,
              fMask:  RebarInfoMask,

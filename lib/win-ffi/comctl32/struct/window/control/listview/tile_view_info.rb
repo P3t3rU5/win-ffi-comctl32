@@ -6,19 +6,14 @@ require_relative '../../../../enum/window/control/listview/tile_view_info_flag'
 
 module WinFFI
   module Comctl32
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvtileviewinfo
     class LVTILEVIEWINFO < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def dwMask; end
-      def dwMask=(v) end
-      def dwFlags; end
-      def dwFlags=(v) end
-      def sizeTile; end
-      def sizeTile=(v) end
-      def cLines; end
-      def cLines=(v) end
-      def rcLabelMargin; end
-      def rcLabelMargin=(v) end
+      attr_accessor :cbSize,
+                    :dwMask,
+                    :dwFlags,
+                    :sizeTile,
+                    :cLines,
+                    :rcLabelMargin
 
       layout cbSize:        :uint,
              dwMask:        ListviewTileViewInfoMask,

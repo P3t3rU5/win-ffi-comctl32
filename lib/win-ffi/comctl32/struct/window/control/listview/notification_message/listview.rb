@@ -3,24 +3,16 @@ require 'win-ffi/user32/struct/window/control/notification_message/header'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmlistview
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlistview
     class NMLISTVIEW < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def iItem; end
-      def iItem=(v) end
-      def iSubItem; end
-      def iSubItem=(v) end
-      def uNewState; end
-      def uNewState=(v) end
-      def uOldState; end
-      def uOldState=(v) end
-      def uChanged; end
-      def uChanged=(v) end
-      def ptAction; end
-      def ptAction=(v) end
-      def lParam; end
-      def lParam=(v) end
+      attr_accessor :hdr,
+                    :iItem,
+                    :iSubItem,
+                    :uNewState,
+                    :uOldState,
+                    :uChanged,
+                    :ptAction,
+                    :lParam
 
       layout hdr:       User32::NMHDR,
              iItem:     :int,

@@ -5,31 +5,20 @@ require_relative '../../../../typedef/htreeitem'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tvitemexa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tvitemexw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tvitemexa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tvitemexw
     class TVITEMEX < FFIAdditions::Struct
-      def mask; end
-      def mask=(v) end
-      def hItem; end
-      def hItem=(v) end
-      def state; end
-      def state=(v) end
-      def stateMask; end
-      def stateMask=(v) end
-      def pszText; end
-      def pszText=(v) end
-      def cchTextMax; end
-      def cchTextMax=(v) end
-      def iImage; end
-      def iImage=(v) end
-      def iSelectedImage; end
-      def iSelectedImage=(v) end
-      def cChildren; end
-      def cChildren=(v) end
-      def lParam; end
-      def lParam=(v) end
-      def iIntegral; end
-      def iIntegral=(v) end
+      attr_accessor :mask,
+                    :hItem,
+                    :state,
+                    :stateMask,
+                    :pszText,
+                    :cchTextMax,
+                    :iImage,
+                    :iSelectedImage,
+                    :cChildren,
+                    :lParam,
+                    :iIntegral
 
       buffer = {
           mask:           TreeViewItemFlag,
@@ -46,12 +35,7 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :vista
-        def uStateEx; end
-        def uStateEx=(v) end
-        def hwnd; end
-        def hwnd=(v) end
-        def iExpandedImage; end
-        def iExpandedImage=(v) end
+        attr_accessor :uStateEx, :hwnd, :iExpandedImage
 
         buffer.merge(
             uStateEx:       TreeViewItemStateExtended,
@@ -59,8 +43,7 @@ module WinFFI
             iExpandedImage: :int
         )
         if WINDOWS_VERSION >= 7
-          def iReserved; end
-          def iReserved=(v) end
+          attr_accessor :iReserved
 
           buffer.merge(iReserved: :int)
         end

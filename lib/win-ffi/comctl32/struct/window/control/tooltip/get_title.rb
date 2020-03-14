@@ -1,16 +1,9 @@
 module WinFFI
   if WINDOWS_VERSION >= :xp
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-_ttgettitle
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-ttgettitle
       class TTGETTITLE < FFIAdditions::Struct
-        def dwSize; end
-        def dwSize=(v) end
-        def uTitleBitmap; end
-        def uTitleBitmap=(v) end
-        def cch; end
-        def cch=(v) end
-        def pszTitle; end
-        def pszTitle=(v) end
+        attr_accessor :dwSize, :uTitleBitmap, :cch, :pszTitle
 
         layout dwSize:       :dword,
                uTitleBitmap: :uint,

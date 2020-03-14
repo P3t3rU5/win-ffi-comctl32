@@ -8,8 +8,10 @@ module WinFFI
 
       define_prefix(:EMF, EmptyMarkupFlag)
 
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmlvemptymarkup
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvemptymarkup
       class NMLVEMPTYMARKUP < FFIAdditions::Struct
+        attr_accessor :hdr, :dwFlags, :szMarkup
+
         layout hdr:      User32::NMHDR,
                dwFlags:  EmptyMarkupFlag,
                szMarkup: [:wchar, L_MAX_URL_LENGTH]

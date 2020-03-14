@@ -7,8 +7,10 @@ module WinFFI
     require_relative '../../../../enum/window/control/button_control/split_info_style'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-button_splitinfo
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-button_splitinfo
       class BUTTON_SPLITINFO < FFIAdditions::Struct
+        attr_accessor :mask, :himlGlyph, :uSplitStyle, :size
+
         layout mask:        ButtonControlSplitInfoFlag,
                himlGlyph:   :himagelist,
                uSplitStyle: ButtonControlSplitInfoStyle,

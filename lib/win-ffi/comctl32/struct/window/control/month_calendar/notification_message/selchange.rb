@@ -3,14 +3,9 @@ require 'win-ffi/kernel32/struct/time/system_time'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/Commctrl/ns-commctrl-tagnmselchange
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmselchange
     class NMSELCHANGE < FFIAdditions::Struct
-      def nmhdr; end
-      def nmhdr=(v) end
-      def stSelStart; end
-      def stSelStart=(v) end
-      def stSelEnd; end
-      def stSelEnd=(v) end
+      attr_accessor :nmhdr, :stSelStart, :stSelEnd
 
       layout nmhdr:      User32::NMHDR,
              stSelStart: Kernel32::SYSTEMTIME,

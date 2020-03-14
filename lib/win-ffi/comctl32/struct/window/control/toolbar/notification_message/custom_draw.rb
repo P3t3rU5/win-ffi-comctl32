@@ -3,34 +3,21 @@ require 'win-ffi/user32/struct/window/control/notification_message/custom_draw'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmtbcustomdraw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtbcustomdraw
     class NMTBCUSTOMDRAW < FFIAdditions::Struct
-      def nmcd; end
-      def nmcd=(v) end
-      def hbrMonoDither; end
-      def hbrMonoDither=(v) end
-      def hbrLines; end
-      def hbrLines=(v) end
-      def hpenLines; end
-      def hpenLines=(v) end
-      def clrText; end
-      def clrText=(v) end
-      def clrMark; end
-      def clrMark=(v) end
-      def clrTextHighlight; end
-      def clrTextHighlight=(v) end
-      def clrBtnFace; end
-      def clrBtnFace=(v) end
-      def clrBtnHighlight; end
-      def clrBtnHighlight=(v) end
-      def clrHighlightHotTrack; end
-      def clrHighlightHotTrack=(v) end
-      def rcText; end
-      def rcText=(v) end
-      def nStringBkMode; end
-      def nStringBkMode=(v) end
-      def nHLStringBkMode; end
-      def nHLStringBkMode=(v) end
+      attr_accessor :nmcd,
+                    :hbrMonoDither,
+                    :hbrLines,
+                    :hpenLines,
+                    :clrText,
+                    :clrMark,
+                    :clrTextHighlight,
+                    :clrBtnFace,
+                    :clrBtnHighlight,
+                    :clrHighlightHotTrack,
+                    :rcText,
+                    :nStringBkMode,
+                    :nHLStringBkMode
 
       buffer = {
           nmcd:                 User32::NMCUSTOMDRAW,
@@ -49,8 +36,7 @@ module WinFFI
       }
 
       if WINDOWS_VERSION >= :xp
-        def iListGap; end
-        def iListGap=(v) end
+        attr_accessor :iListGap
 
         buffer.merge(iListGap: :int)
       end

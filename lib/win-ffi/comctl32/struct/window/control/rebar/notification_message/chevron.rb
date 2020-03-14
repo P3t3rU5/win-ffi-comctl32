@@ -4,20 +4,14 @@ module WinFFI
     require 'win-ffi/core/struct/rect'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmrebarchevron
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmrebarchevron
       class NMREBARCHEVRON < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def uBand; end
-        def uBand=(v) end
-        def wID; end
-        def wID=(v) end
-        def lParam; end
-        def lParam=(v) end
-        def rc; end
-        def rc=(v) end
-        def lParamNM; end
-        def lParamNM=(v) end
+        attr_accessor :hdr,
+                      :uBand,
+                      :wID,
+                      :lParam,
+                      :rc,
+                      :lParamNM
 
         layout hdr:      User32::NMHDR,
                uBand:    :uint,

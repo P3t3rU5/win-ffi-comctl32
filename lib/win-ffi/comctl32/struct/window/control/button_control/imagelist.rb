@@ -6,8 +6,10 @@ module WinFFI
     require_relative '../../../../enum/window/control/button_control/button_imagelist_align'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-button_imagelist
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-button_imagelist
       class BUTTON_IMAGELIST < FFIAdditions::Struct
+        attr_accessor :himl, :margin, :uAlign
+
         layout himl:   :himagelist,
                margin: RECT,
                uAlign: ButtonImageListAlign

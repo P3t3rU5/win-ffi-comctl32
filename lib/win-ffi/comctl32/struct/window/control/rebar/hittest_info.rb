@@ -3,14 +3,9 @@ module WinFFI
   require_relative '../../../../enum/window/control/rebar/hittest'
 
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-rbhittestinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-rbhittestinfo
     class RBHITTESTINFO < FFIAdditions::Struct
-      def pt; end
-      def pt=(v) end
-      def flags; end
-      def flags=(v) end
-      def iBand; end
-      def iBand=(v) end
+      attr_accessor :pt, :flags, :iBand
 
       layout pt:    POINT,
              flags: RebarHittest,

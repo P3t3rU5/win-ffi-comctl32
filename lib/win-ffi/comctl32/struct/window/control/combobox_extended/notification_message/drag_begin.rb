@@ -3,15 +3,10 @@ require_relative '../../../../../constant'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmcbedragbegina
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmcbedragbeginw
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmcbedragbegina
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmcbedragbeginw
     class NMCBEDRAGBEGIN < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def iItemid; end
-      def iItemid=(v) end
-      def szText; end
-      def szText=(v) end
+      attr_accessor :hdr, :iItemid, :szText
 
       layout hdr:     User32::NMHDR,
              iItemid: :int,

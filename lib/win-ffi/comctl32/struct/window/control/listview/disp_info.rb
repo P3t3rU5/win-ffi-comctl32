@@ -4,13 +4,10 @@ require_relative 'item'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmlvdispinfoa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-nmlvdispinfow
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvdispinfoa
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmlvdispinfow
     class NMLVDISPINFO < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def item; end
-      def item=(v) end
+      attr_accessor :hdr, :item
 
       layout hdr:  User32::NMHDR,
              item: LVITEM

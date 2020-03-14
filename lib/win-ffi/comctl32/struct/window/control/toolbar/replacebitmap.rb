@@ -1,17 +1,12 @@
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbreplacebitmap
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbreplacebitmap
     class TBREPLACEBITMAP < FFIAdditions::Struct
-      def hInstOld; end
-      def hInstOld=(v) end
-      def nIDOld; end
-      def nIDOld=(v) end
-      def hInstNew; end
-      def hInstNew=(v) end
-      def nIDNew; end
-      def nIDNew=(v) end
-      def nButtons; end
-      def nButtons=(v) end
+      attr_accessor :hInstOld,
+                    :nIDOld,
+                    :hInstNew,
+                    :nIDNew,
+                    :nButtons
 
       layout hInstOld: :hinstance,
              nIDOld:   :uint_ptr,

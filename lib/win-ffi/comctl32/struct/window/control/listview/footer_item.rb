@@ -8,20 +8,14 @@ module WinFFI
 
     define_prefix(:LVFIS, ListviewFooterItemState)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-lvfooteritem
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvfooteritem
     class LVFOOTERITEM < FFIAdditions::Struct
-      def mask; end
-      def mask=(v) end
-      def iItem; end
-      def iItem=(v) end
-      def pszText; end
-      def pszText=(v) end
-      def cchTextMax; end
-      def cchTextMax=(v) end
-      def state; end
-      def state=(v) end
-      def stateMask; end
-      def stateMask=(v) end
+      attr_accessor :mask,
+                    :iItem,
+                    :pszText,
+                    :cchTextMax,
+                    :state,
+                    :stateMask
 
       layout mask:       ListviewFooterItemFlag,
              iItem:      :int,

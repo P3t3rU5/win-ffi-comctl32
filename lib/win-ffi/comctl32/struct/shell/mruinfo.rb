@@ -2,16 +2,23 @@ require 'win-ffi/comctl32'
 
 module WinFFI
   module Comctl32
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb776772(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/win32/shell/mrucmpproc
     MRUCMPPROC = callback 'MRUCMPPROC', [:string, :string], :int
 
-    # https://msdn.microsoft.com/en-us/library/windows/desktop/bb773340(v=vs.85).aspx
+    # https://docs.microsoft.com/en-us/windows/win32/shell/mruinfo
     class MRUINFO < FFIAdditions::Struct
-      layout cbSize:          :dword,
-             uMax:             :uint,
-             fFlags:           :uint,
-             hKey:             :hkey,
-             lpszSubKey:     :string,
+      attr_accessor :cbSize,
+                    :uMax,
+                    :fFlags,
+                    :hKey,
+                    :lpszSubKey,
+                    :lpfnCompare
+
+      layout cbSize:      :dword,
+             uMax:        :uint,
+             fFlags:      :uint,
+             hKey:        :hkey,
+             lpszSubKey:  :string,
              lpfnCompare: MRUCMPPROC
     end
   end

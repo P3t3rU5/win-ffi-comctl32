@@ -4,16 +4,9 @@ module WinFFI
 
     define_prefix(:LVIM, ListviewInsertMark)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-lvinsertmark
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-lvinsertmark
     class LVINSERTMARK < FFIAdditions::Struct
-      def cbSize; end
-      def cbSize=(v) end
-      def dwFlags; end
-      def dwFlags=(v) end
-      def iItem; end
-      def iItem=(v) end
-      def dwReserved; end
-      def dwReserved=(v) end
+      attr_accessor :cbSize, :dwFlags, :iItem, :dwReserved
 
       layout cbSize:     :uint,
              dwFlags:    ListviewInsertMark,

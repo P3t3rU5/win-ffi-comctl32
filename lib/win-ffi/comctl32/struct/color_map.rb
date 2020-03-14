@@ -1,11 +1,8 @@
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-colormap
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-colormap
     class COLORMAP < FFIAdditions::Struct
-      def from; end
-      def from=(v) end
-      def to; end
-      def to=(v) end
+      attr_accessor :from, :to
 
       layout from: :colorref,
              to:   :colorref

@@ -1,11 +1,8 @@
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tbaddbitmap
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tbaddbitmap
     class TBADDBITMAP < FFIAdditions::Struct
-      def hInst; end
-      def hInst=(v) end
-      def nID; end
-      def nID=(v) end
+      attr_accessor :hInst, :nID
 
       layout hInst: :hinstance,
              nID:   :uint_ptr

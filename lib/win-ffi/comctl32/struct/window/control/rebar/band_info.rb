@@ -5,49 +5,29 @@ module WinFFI
     require_relative '../../../../enum/window/control/rebar/band_style'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-rebarbandinfoa
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-rebarbandinfow
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-rebarbandinfoa
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-rebarbandinfow
       class REBARBANDINFO < FFIAdditions::Struct
-        def cbSize; end
-        def cbSize=(v) end
-        def fMask; end
-        def fMask=(v) end
-        def fStyle; end
-        def fStyle=(v) end
-        def clrFore; end
-        def clrFore=(v) end
-        def clrBack; end
-        def clrBack=(v) end
-        def lpText; end
-        def lpText=(v) end
-        def cch; end
-        def cch=(v) end
-        def iImage; end
-        def iImage=(v) end
-        def hwndChild; end
-        def hwndChild=(v) end
-        def cxMinChild; end
-        def cxMinChild=(v) end
-        def cyMinChild; end
-        def cyMinChild=(v) end
-        def cx; end
-        def cx=(v) end
-        def hbmBack; end
-        def hbmBack=(v) end
-        def wID; end
-        def wID=(v) end
-        def cyChild; end
-        def cyChild=(v) end
-        def cyMaxChild; end
-        def cyMaxChild=(v) end
-        def cyIntegral; end
-        def cyIntegral=(v) end
-        def cxIdeal; end
-        def cxIdeal=(v) end
-        def lParam; end
-        def lParam=(v) end
-        def cxHeader; end
-        def cxHeader=(v) end
+        attr_accessor :cbSize,
+                      :fMask,
+                      :fStyle,
+                      :clrFore,
+                      :clrBack,
+                      :lpText,
+                      :cch,
+                      :iImage,
+                      :hwndChild,
+                      :cxMinChild,
+                      :cyMinChild,
+                      :cx,
+                      :hbmBack,
+                      :wID,
+                      :cyChild,
+                      :cyMaxChild,
+                      :cyIntegral,
+                      :cxIdeal,
+                      :lParam,
+                      :cxHeader
 
         buffer = {
             cbSize:            :uint,
@@ -73,10 +53,7 @@ module WinFFI
         }
 
         if WINDOWS_VERSION >= :vista
-          def rcChevronLocation; end
-          def rcChevronLocation=(v) end
-          def uChevronState; end
-          def uChevronState=(v) end
+          attr_accessor :rcChevronLocation, :uChevronState
 
           buffer.merge(rcChevronLocation: RECT, uChevronState: User32::StateSystemFlag)
         end

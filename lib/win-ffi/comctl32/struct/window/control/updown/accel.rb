@@ -1,12 +1,9 @@
 module WinFFI
   if WINDOWS_VERSION >= :vista
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-_udaccel
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-udaccel
       class UDACCEL < FFIAdditions::Struct
-        def nSec; end
-        def nSec=(v) end
-        def nInc; end
-        def nInc=(v) end
+        attr_accessor :nSec, :nInc
 
         layout nSec: :uint,
                nInc: :uint

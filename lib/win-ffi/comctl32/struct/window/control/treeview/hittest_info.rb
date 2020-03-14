@@ -5,14 +5,9 @@ require_relative '../../../../typedef/htreeitem'
 
 module WinFFI
   module Comctl32
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagtvhittestinfo
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-tvhittestinfo
     class TVHITTESTINFO < FFIAdditions::Struct
-      def pt; end
-      def pt=(v) end
-      def flags; end
-      def flags=(v) end
-      def hItem; end
-      def hItem=(v) end
+      attr_accessor :pt, :flags, :hItem
 
       layout pt:    POINT,
              flags: TreeViewHitTest,

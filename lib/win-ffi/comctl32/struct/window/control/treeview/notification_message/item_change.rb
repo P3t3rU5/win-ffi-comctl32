@@ -4,22 +4,15 @@ module WinFFI
 
     require_relative '../../../../../typedef/htreeitem'
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/Commctrl/ns-commctrl-tagnmtreeviewa
-    # https://docs.microsoft.com/en-us/windows/desktop/api/Commctrl/ns-commctrl-tagnmtreevieww
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmtvitemchange
     module Comctl32
       class NMTVITEMCHANGE < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v); end
-        def uChanged; end
-        def uChanged=(v); end
-        def hItem; end
-        def hItem=(v); end
-        def uStateNew; end
-        def uStateNew=(v); end
-        def uStateOld; end
-        def uStateOld=(v); end
-        def lParam; end
-        def lParam=(v); end
+        attr_accessor :hdr,
+                      :uChanged,
+                      :hItem,
+                      :uStateNew,
+                      :uStateOld,
+                      :lParam
 
         layout hdr:       User32::NMHDR,
                uChanged:  :uint,

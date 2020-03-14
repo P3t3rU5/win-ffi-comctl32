@@ -4,16 +4,10 @@ module WinFFI
     require_relative '../item'
 
     module Comctl32
-      # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmhdfilterbtnclick
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmheadera
+      # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmheaderw
       class NMHEADER < FFIAdditions::Struct
-        def hdr; end
-        def hdr=(v) end
-        def iItem; end
-        def iItem=(v) end
-        def iButton; end
-        def iButton=(v) end
-        def pitem; end
-        def pitem=(v) end
+        attr_accessor :hdr, :iItem, :iButton, :pitem
 
         layout hdr:     User32::NMHDR,
                iItem:   :int,

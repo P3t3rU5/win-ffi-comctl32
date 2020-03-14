@@ -7,26 +7,17 @@ module WinFFI
 
     define_prefix(:LVKF, ListviewKeyFlag)
 
-    # https://docs.microsoft.com/en-us/windows/desktop/api/commctrl/ns-commctrl-tagnmitemactivate
+    # https://docs.microsoft.com/en-us/windows/win32/api/commctrl/ns-commctrl-nmitemactivate
     class NMITEMACTIVATE < FFIAdditions::Struct
-      def hdr; end
-      def hdr=(v) end
-      def iItem; end
-      def iItem=(v) end
-      def iSubItem; end
-      def iSubItem=(v) end
-      def uNewState; end
-      def uNewState=(v) end
-      def uOldState; end
-      def uOldState=(v) end
-      def uChanged; end
-      def uChanged=(v) end
-      def ptAction; end
-      def ptAction=(v) end
-      def lParam; end
-      def lParam=(v) end
-      def uKeyFlags; end
-      def uKeyFlags=(v) end
+      attr_accessor :hdr,
+                    :iItem,
+                    :iSubItem,
+                    :uNewState,
+                    :uOldState,
+                    :uChanged,
+                    :ptAction,
+                    :lParam,
+                    :uKeyFlags
 
       layout hdr:       User32::NMHDR,
              iItem:     :int,
